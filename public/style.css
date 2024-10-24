@@ -1,0 +1,283 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  font-family: cursive;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+:root {
+  --cor-branco: rgb(255, 255, 255);
+  --cor-preto: rgb(0, 0, 0);
+  --cor-verde: rgb(60, 135, 41);
+  --cor-vermelho: rgb(255, 0, 0);
+  --cor-vermelho-light: rgb(197, 41, 41);
+  --cor-azul: rgb(43, 17, 160);
+  --cor-cinza: rgb(98, 98, 98);
+  --cor-amarelo: rgb(215, 193, 70);
+}
+
+body {
+  background: pink;
+}
+/*****************************/
+.header-home {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  transition: all 300ms ease-in-out;
+}
+
+header.menu-scroll {
+  background: palevioletred;
+}
+
+.top-content {
+  background: var(--cor-branco);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+
+.nav-superior {
+  width: 40%;
+}
+
+.nav-superior ul li a {
+  color: var(--cor-cinza);
+  display: flex;
+  padding: 0.2rem 1rem;
+  transition: all 300ms ease-in-out;
+  display: flex;
+}
+
+.nav-superior ul li a:hover {
+  color: var(--cor-preto);
+}
+
+.navigation {
+  display: flex;
+  padding: 2rem 0;
+  transition: all 300ms ease-in-out;
+}
+
+header.menu-scroll .navigation {
+  padding: 0;
+}
+/*************************/
+
+.img-logo img {
+  width: 250px;
+}
+
+.main-menu {
+  width: 100%;
+}
+
+.main-menu ul {
+  display: flex;
+}
+
+.main-menu ul li a {
+  display: flex;
+  padding: 1rem 2rem;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--cor-branco);
+  transition: all 300ms ease-in-out;
+}
+
+.main-menu ul li a:hover {
+  background: var(--cor-cinza);
+}
+
+/* Estilo do formulario de cadastro */
+
+.content-form-cadastro {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.content-form-cadastro h1 {
+  text-align: center;
+  width: 100%;
+}
+
+.content-form-cadastro form {
+  width: 40%;
+  padding: 1rem 0;
+}
+
+.content-form-cadastro form div {
+  padding: 0 0 1rem 0;
+}
+
+.content-form-cadastro form div input {
+  width: 100%;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  outline: none;
+  border: 0.2rem solid var(--cor-verde);
+  border-radius: 0.5rem;
+}
+
+.content-form-cadastro form .content-btn button {
+  width: 100%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  background: var(--cor-cinza);
+  border: none;
+  padding: 0.5rem 0;
+  border-radius: 0.5rem;
+  transition: background 300ms ease-in-out;
+}
+
+.content-form-cadastro form .content-btn button:hover {
+  background: var(--cor-verde);
+}
+
+.home,
+.quemsomos,
+.comoajudar {
+  height: 100vh;
+}
+
+.space {
+  padding-top: 15rem;
+}
+
+.div-principal {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.div-principal div {
+  background: rgb(255, 255, 255);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  display: flex;
+}
+
+.div-eventos {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2rem;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.div-eventos div,
+p {
+  background: rgb(255, 255, 255);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  display: flex;
+  font-size: 30px;
+}
+
+/*********************************************
+        Estilo das paginas do admin
+ ********************************************/
+
+.content-admin {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "sidebar nav"
+    "sidebar main";
+}
+
+.container-header-admin {
+  grid-area: sidebar;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  z-index: 99;
+  background: var(--cor-cinza);
+}
+
+.admin-profile {
+  grid-area: nav;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  background: aliceblue;
+  padding: 1rem;
+}
+
+.content-display {
+  grid-area: main;
+  padding: 1rem 2rem;
+}
+
+.main-menu-admin {
+  padding: 0 0 0 2rem;
+}
+
+.main-menu-admin ul li a {
+  display: flex;
+  padding: 0.5rem 0;
+  color: white;
+  font-weight: bold;
+  transition: background 300ms ease-in-out;
+}
+
+.main-menu-admin ul li a:hover {
+  background: pink;
+}
+
+.active {
+  background-color: pink;
+}
+
+/*********************************************
+        rodape do site vapo vapo
+ ********************************************/
+
+.content-footer {
+  text-align: center;
+}
+.vasco {
+  display: flex;
+  flex-direction: column;
+}
+.rodape {
+  color: white;
+  background-color: palevioletred;
+}
+
+.logos {
+  left: 40px;
+}

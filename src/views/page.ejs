@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <%- include('components/head') %>
+  <body>
+    <main class="grid-admin">
+      <div class="content-admin">
+        <%- include ('components/menuAdmin') %>
+        <div class="admin-profile">
+          <%- include('components/headerAdmin') %>
+        </div>
+        <div class="content-display">
+          <h1>Pages</h1>
+          <div class="content-msg">
+            <% if (msgSuccess) { %>
+            <div class="msgSuccess">
+              <%= msgSuccess %> <a href="/pages">X</a>
+            </div>
+
+            <% } %> <% if (msgError) { >
+            <div class="msgSuccess"><%= msgError %> <a href="/pages">X</a></div>
+
+            } %>
+          </div>
+
+          <div class="liste-pages">
+            <div class="btn-create-page">
+              <a href="/pages/createPages"> Adicionar uma nova pagina</a>
+            </div>
+            <div class="liste-pages">
+              <div class="table">
+                <div class="row">
+                  <div class="row-border header-page">
+                    <div class="col">Pages</div>
+                    <div class="col">Position</div>
+                    <div class="col">Status</div>
+                    <div class="col">Editar</div>
+                    <div class="col">Delete</div>
+                  </div>
+                </div>
+
+                <div class="row">
+                <% pages.forEach(page => { %>
+
+                  <div class="row-border">
+                    <div class="col"><%= page.page_tittle %> </div>
+                    <div class="col"><%= page_position_name %> </div>
+                    <div class="col">
+                      <%= page.page_status === 1 ? 'Publicado' : 'Rascunho' %>
+                      </div>
+                      <div class="col">
+                        <a href="/pages/editPage/<%= page.page.id %>">Editar</a>
+                        </div>
+                        <div class="col">
+                          <button
+                          onclick="openDeleteModal(`<%= page.page_id %>`,`<%= page.page_tittle) id="delete"
+                          data-id="<%= page.page_id %>"
+                          >
+                          Delete
+
+                          </button>
+
+
+                          </div>
+                    </div>
+                  
+                });  
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <h1>Paginas</h1>
+          <div></div>
+        </div>
+      </div>
+    </main>
+    <%- include('components/script') %>
+  </body>
+</html>
