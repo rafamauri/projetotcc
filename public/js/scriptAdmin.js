@@ -1,5 +1,37 @@
-const active = document.querySelector("#menu-admin ul");
+const cancelar = document.querySelector("#cancelar");
+const modal = document.querySelector("#modal");
+const modalAddPosition = document.querySelector("#modal-add-position");
+const modalForm = document.querySelector("#modal form");
+const text_h3 = document.querySelector("#content-delete h3");
+const cancel_x = document.querySelector("#cancelar-x a");
+const plus_position = document.querySelector("#page_position a");
 
-active.addEventListener("click", (e) => {
-  active.classList.r;
+if (cancelar !== null) {
+  cancelar.addEventListener("click", () => {
+    modal.classList.add("hide-modal");
+    modal.classList.remove("show-modal");
+  });
+}
+
+if (plus_position !== null) {
+  plus_position;
+  addEventListener("click", () => {
+    modalAddPosition.classList.add("show-modal");
+    modalAddPosition.classList.add("hide-modal");
+  });
+}
+
+const openDeletModal = (id, page_title) => {
+  modalForm.action = `/pages/deletePage/${id}`;
+  text_h3.innerHTML = `Você está prestes a deletar a pagina ${page_title}`;
+  modal.classList.remove("hide-modal");
+};
+
+const active = document.querySelectorAll("#menu-admin ul li a");
+const activePage = window.location.pathname;
+
+active.forEach((link) => {
+  if (link.href.includes(`${activePage}`)) {
+    link.classList.add("active");
+  }
 });

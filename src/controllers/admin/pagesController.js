@@ -1,10 +1,10 @@
-const PagesModel = require("../../models/pagesModel");
-const PositionModel = require("../../models/positionModel");
+const PageModel = require("../../models/pagesModels");
+// const PositionModel = require("../../models/positionModel");
 
 module.exports = class PagesController {
   static async getPages(req, res) {
     const adminUser = req.session.adminUser;
-    const result = await PagesModel.selectJoinPagesPosition();
+    const result = await PageModel.selectJoinPagesPosition();
 
     return res.render("pages", {
       adminUser,
@@ -14,7 +14,7 @@ module.exports = class PagesController {
   }
   static async getCreatePages(req, res) {
     const adminUser = req.session.adminUser;
-    const getPosition = await PositionModel.selectAllPosition();
+    // const getPosition = await PositionModel.selectAllPosition();
 
     return res.render("createPages", {
       adminUser,
@@ -37,7 +37,7 @@ module.exports = class PagesController {
       position_position_id,
     };
 
-    const result = await PagesModel.insertPages(page);
+    const result = await PageModel.insertPages(page);
     console.log(result);
 
     return res.redirect(
@@ -50,7 +50,7 @@ module.exports = class PagesController {
     const getParams = req.params.id;
 
     const resultPosition = await PositionModel.selectAllPosition();
-    const result = await PagesModel.selectJoinPagesPositionById(getParams);
+    const result = await PageModel.selectJoinPagesPositionById(getParams);
 
     return res.render("editPage", {
       adminUser,
@@ -76,7 +76,7 @@ module.exports = class PagesController {
       position_position_id,
     };
 
-    const result = await PagesModel.updatePage(getParams, getDataUpdate);
+    const result = await PageModel.updatePage(getParams, getDataUpdate);
     console.log(result);
 
     return res.redirect("/pages?msgSuccess=Atualizado com sucesso!");
@@ -85,7 +85,7 @@ module.exports = class PagesController {
   static async deletePage(req, res) {
     const getId = req.params.id;
 
-    const result = await PagesModel.deletePage(getId);
+    const result = await PageModel.deletePage(getId);
     console.log(result);
 
     return res.redirect("/page");
